@@ -1,27 +1,12 @@
-doctype
-html
-  head
-    title Hello!
-    link(href="/css/site.css" rel="stylesheet")
-  body
-    .container
-      ul.menu
-        li
-          a(href="/") Home
-        li
-          a(href="/about") About
-        li.delimiter
-        if (currentUser)
-          li
-            span= currentUser.username
-          li
-            form#logout-form(method="post" action="/users/logout")
-              a(href="javascript:document.getElementById('logout-form').submit()") Logout
-        else 
-          li
-            a(href="/users/register") Register
-          li
-            a(href="/users/login") Log In
-      if (globalError)
-        h3= globalError
-      block main-content
+extends ../../../node_modules/pug-bootstrap/_bootstrap
+block append head
+    title  Leisure Project Website
+    link(rel='stylesheet', href='https://bootswatch.com/cerulean/bootstrap.min.css')
+block append styles
+    script(src=' https://use.fontawesome.com/2d804f2dcd.js')
+    script(src='https://code.jquery.com/jquery-3.2.1.min.js', integrity='sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=', crossorigin='anonymous')
+block body
+    block nav
+        include ./nav.pug
+    div.container.page-content
+        block main-content

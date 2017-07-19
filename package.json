@@ -18,16 +18,22 @@
   "homepage": "https://github.com/Express-4/Social-Hub#readme",
   "dependencies": {
     "body-parser": "1.17.2",
+    "bootstrap": "^3.3.7",
     "cookie-parser": "1.4.3",
     "express": "^4.15.3",
     "express-session": "1.15.4",
+    "jade-bootstrap": "^1.0.14",
+    "jquery": "^3.2.1",
     "mongoose": "^4.11.3",
     "passport": "0.3.2",
     "passport-local": "1.0.0",
-    "pug": "^2.0.0-rc.2"
+    "pug": "^2.0.0-rc.2",
+    "pug-bootstrap": "0.0.15"
   },
   "devDependencies": {
-    "eslint": "^4.2.0",
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.9.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-node": "^5.1.0",
