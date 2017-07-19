@@ -3,13 +3,15 @@ let mongoose = require('mongoose');
 
 let app = express();
 let env = process.env.NODE_ENV || 'development';
-let port = process.env.port || 1234;
+let config = require('./server/config/config')[env];
+
+
 mongoose.Promise = global.Promise;
 
 app.set('view engine', 'pug');
 app.set('views','./server/views');
 app.get('/', (req, res) => {
-    mongoose.connect('mongodb://localhost:27017/express4');
+    mongoose.connect(config.db);
 
     console.log('MongoDB ready!');
     res.render('index');
@@ -17,5 +19,5 @@ app.get('/', (req, res) => {
 
 app.use(express.static('public'))
 
-app.listen(port);
+app.listen(config.port);
 console.log('Express ready..');
