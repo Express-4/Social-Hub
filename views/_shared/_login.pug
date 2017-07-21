@@ -1,0 +1,18 @@
+mixin login
+    if (user)
+        form
+        ul.nav.navbar-nav.navbar-right
+            li
+                a(href='#')
+                    =user.username
+            li
+                a(href='/auth/sign-out') 
+                    | Log off
+    else
+        ul.nav.navbar-nav.navbar-right
+            li
+                a(href='/auth/sign-up')
+                    | Register
+            li
+                a(href='/auth/sign-in')
+                    | Login

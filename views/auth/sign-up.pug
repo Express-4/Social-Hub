@@ -1,0 +1,28 @@
+extends ../_shared/_master
+block body
+        h3 
+            | Create a new account.
+        form.form-horizontal(action='/auth/sign-up', method="POST", role='form')
+            div.form-group
+                label.col-md-2.control-label(for='username')
+                    | Username
+                div.col-md-10
+                    input.form-control(type="text" name="username")
+            div.form-group
+                label.col-md-2.control-label(for='email')
+                    | Email
+                div.col-md-10
+                    input.form-control(type="text" name="email")
+            div.form-group
+                label.col-md-2.control-label(for='password')
+                    | Password
+                div.col-md-10
+                    input.form-control(type="text" name="password")
+            div.form-group
+                label.col-md-2.control-label(for='confirm password')
+                    | Confirm Password
+                div.col-md-10
+                    input.form-control(type="text" name="confirm password")
+            div.form-group
+                div.col-md-offset-2.col-md-10
+                    input.btn.btn-default(type='submit', value='Register')

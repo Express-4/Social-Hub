@@ -1,0 +1,18 @@
+extends ../_shared/_master
+block body
+        h3 
+            | Sign in.
+        form.form-horizontal(action='/auth/sign-in', method="POST", role='form')
+            div.form-group
+                label.col-md-2.control-label(for='username')
+                    | Username
+                div.col-md-10
+                    input.form-control(type="text" name="username")
+            div.form-group
+                label.col-md-2.control-label(for='password')
+                    | Password
+                div.col-md-10
+                    input.form-control(type="text" name="password")
+            div.form-group
+                div.col-md-offset-2.col-md-10
+                    input.btn.btn-default(type='submit', value='Sign in')
