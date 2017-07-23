@@ -1,4 +1,5 @@
 const express = require('express');
+const expressValidator = require('express-validator');
 
 const init = (data) => {
     const app = express();
@@ -6,11 +7,7 @@ const init = (data) => {
     require('./config').applyTo(app);
     require('./auth').applyTo(app, data);
 
-    app.use(require('connect-flash')());
-    app.use((req, res, next) => {
-        res.locals.messages = require('express-messages')(req, res);
-        next();
-    });
+    app.use(expressValidator());
 
     require('./routers')
         .attachTo(app, data);
