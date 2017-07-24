@@ -4,7 +4,7 @@ class TodosController {
     }
 
     getSignUpForm(req, res) {
-        return res.render('auth/sign-up');
+        return res.render('auth/sign-up', { validated: {} });
     }
     getSignInForm(req, res) {
         return res.render('auth/sign-in');
@@ -27,15 +27,14 @@ class TodosController {
             .equals(req.body.confirmpassword);
         const errors = req.validationErrors();
         if (errors) {
-            const errorsModel = { errors: errors };
-            res.render('auth/sign-up', errorsModel);
+            res.render('auth/sign-up', { errors: errors, validated: req.body });
             return;
         }
 
         this.data.users.findByUsername(bodyUser.username)
             .then((dbUser) => {
                 if (dbUser) {
-                    throw new Error('User already exists');
+                    throw new Error('Username already exists');
                 }
                 return this.data.users.create(bodyUser);
             })
@@ -43,7 +42,7 @@ class TodosController {
                 return res.redirect('/auth/sign-in');
             })
             .catch((err) => {
-                res.render('auth/sign-up', { errors: [{ msg: err.message }] });
+                res.render('auth/sign-up', { errors: [{ msg: err.message }], validated: req.body });
             });
     }
 }

@@ -12,12 +12,12 @@ block body
                 label.col-md-2.control-label(for='username')
                     | Username
                 div.col-md-10
-                    input.form-control(type="text" name="username")
+                    input.form-control(type="text" name="username" value=validated.username || '')
             div.form-group
                 label.col-md-2.control-label(for='email')
                     | Email
                 div.col-md-10
-                    input.form-control(type="text" name="email")
+                    input.form-control(type="text" name="email" value=validated.email || '')
             div.form-group
                 label.col-md-2.control-label(for='password')
                     | Password
