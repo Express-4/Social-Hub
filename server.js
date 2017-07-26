@@ -12,7 +12,7 @@ async()
     .then((data) => require('./app').init(data))
     .then((app) => {
         app.listen(config.port, () =>
-            console.log(`Magic happends at :${config.port}`));
+            console.log(`Server listening at :${config.port}`));
     })
     .catch((err) => {
         console.log(err);

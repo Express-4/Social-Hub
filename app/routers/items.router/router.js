@@ -10,6 +10,10 @@ const attachTo = (app, data) => {
         return res.render('items/form');
     });
 
+    app.get('/items/test', (req, res) => {
+        return res.render('items/test');
+    });
+
     app.post('/items', (req, res) => {
         const item = req.body;
 
