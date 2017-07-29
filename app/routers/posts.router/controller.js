@@ -21,12 +21,12 @@ class PostsController {
             ])
             .then(([dbPost, dbUser]) => {
                 user.posts = dbUser.posts || [];
-                user.posts.push(dbPost);
+                user.posts.push({
+                    text: dbPost.text,
+                    createdOn: dbPost.createdOn,
+                });
 
-                return Promise.all([
-                this.data.posts.updateById(dbPost),
-                this.data.users.updateById(dbUser),
-                ]);
+                return Promise.resolve(this.data.users.updateById(user));
             })
             .then(() => {
                 // connect-flash

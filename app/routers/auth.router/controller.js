@@ -31,18 +31,27 @@ class TodosController {
             return;
         }
 
-        this.data.users.findByUsername(bodyUser.username)
-            .then((dbUser) => {
-                if (dbUser) {
+        // Confirm password is not needed in the db
+        const dbUser = {
+            username: bodyUser.username,
+            email: bodyUser.email,
+            password: bodyUser.password,
+            createdOn: Date.now,
+        };
+
+        this.data.users.findByUsername(dbUser.username)
+            .then((foundUser) => {
+                if (foundUser) {
                     throw new Error('Username already exists');
                 }
-                return this.data.users.create(bodyUser);
+                return this.data.users.create(dbUser);
             })
-            .then((dbUser) => {
+            .then((foundUser) => {
                 return res.redirect('/auth/sign-in');
             })
             .catch((err) => {
-                res.render('auth/sign-up', { errors: [{ msg: err.message }], validated: req.body });
+                res.render('auth/sign-up',
+                { errors: [{ msg: err.message }], validated: req.body });
             });
     }
 }
