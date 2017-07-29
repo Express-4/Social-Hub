@@ -8,6 +8,10 @@ const init = (data) => {
                     });
                 });
         },
+        getChat(req, res)
+        {
+            res.render('items/chat2');
+        },
     };
 
     return controller;

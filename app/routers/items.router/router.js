@@ -10,12 +10,14 @@ const attachTo = (app, data) => {
         return res.render('items/form');
     });
 
-    app.get('/items/test', (req, res) => {
+    app.get('/items/chat', (req, res) => {
         if(!req.user)
         {
             return res.render('auth/sign-in');
         }
-        return res.render('items/test');
+        
+        return controller.getChat(req, res);
+        
     });
 
     app.post('/items', (req, res) => {
