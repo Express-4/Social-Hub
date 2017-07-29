@@ -30,3 +30,11 @@ select {
     margin-right: 5px;
     border-radius: 5px;
 }
+
+.small-avatar {
+    width: 32px;
+    height: 32px;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-radius: 2px;
+}

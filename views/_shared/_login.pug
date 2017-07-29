@@ -3,6 +3,8 @@ mixin login
         form
         ul.nav.navbar-nav.navbar-right
             li
+                img.small-avatar(src='/static/imgs/avatar.png')
+            li
                 a(href='/profile/' + user.username)
                     =user.username
             li
