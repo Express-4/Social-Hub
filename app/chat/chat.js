@@ -1,15 +1,17 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const init = (app) => {
+    var server = require('http').Server(app);
+    var io = require('socket.io')(server);
 
-io.on('connection', function(socket){
-  socket.on('chat message', function(msg){
-    io.emit('chat message', msg);
-  });
-});
+    io.on('connection', function(socket){
+      //socket.on('chat message', function(msg){
+        //io.emit('chat message', msg);
+      //});
+      console.log('a user connected');
+    });
+   
+    return Promise.resolve(server);
+};
 
-io.listen(http);
-
-io.sockets.on('connection', function(socket){
-    socket.emit('message', {'message': 'hello world'});
-});
+module.exports = {
+    init,
+};
