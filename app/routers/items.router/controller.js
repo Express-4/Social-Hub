@@ -12,6 +12,10 @@ const init = (data) => {
         {
             res.render('items/chat2');
         },
+        getProfile(req, res)
+        {
+            res.render('items/profile');
+        },
     };
 
     return controller;

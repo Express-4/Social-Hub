@@ -1,0 +1,9 @@
+mixin socialNav
+    if (user)
+        ul.nav.navbar-nav
+            li 
+                a(href='/items/profile')
+                    | Profile
+            li 
+                a(href='/items/chat')
+                    | Chat
