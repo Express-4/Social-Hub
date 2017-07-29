@@ -30,4 +30,6 @@ block body
                     input.form-control(type="password" name="confirmpassword")
             div.form-group
                 div.col-md-offset-2.col-md-10
-                    input.btn.btn-default(type='submit', value='Register')
+                    input.btn.btn-success(type='submit', value='Register')
+
+            input(type="button" class="btn btn-default" value="Already have an account" onclick="location.href = '/auth/sign-in';")
