@@ -6,7 +6,8 @@ const init = (data) => {
 
     require('./config').applyTo(app);
     require('./auth').applyTo(app, data);
-
+    require('./chat');
+    
     app.use(expressValidator());
 
     app.use(require('connect-flash')());

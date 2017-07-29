@@ -8,6 +8,14 @@ const init = (data) => {
                     });
                 });
         },
+        getChat(req, res)
+        {
+            res.render('items/chat2');
+        },
+        getProfile(req, res)
+        {
+            res.render('items/profile');
+        },
     };
 
     return controller;
