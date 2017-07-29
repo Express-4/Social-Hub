@@ -1,7 +1,10 @@
 mixin post(username, text)
     .col-sm-12
-            img.large-avatar(src='/Avatar?id=6fea56b9-4293-4d5b-b0be-592e7ce2d717')
-            p.user-title
-                | #{username}
-            h4
-                | #{text}
+        .row
+            .col-sm-6.col-sm-offset-2
+                img.large-avatar(src='/static/imgs/avatar.png')
+                p.user-title
+                    | #{username}
+                h4
+                    | #{text}
+                hr

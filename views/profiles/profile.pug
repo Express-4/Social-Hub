@@ -2,9 +2,11 @@ extends ../_shared/_master
 include ../_shared/_post_input
 include ../_shared/_post
 block body
-    h1 Profile Page
-    h2 
-        | #{context.username}
-    +postInput
+    .col-md-1
+        img(src='/static/imgs/avatar.png')
+        h2 
+            | #{context.username}
+    .col-md-11
+        +postInput
     each post in context.posts
-        +post(post.username, post.text)
+        +post(user.username, post.text)
