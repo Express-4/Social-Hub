@@ -20,16 +20,6 @@ const attachTo = (app, data) => {
         
     });
 
-    app.get('/items/profile', (req, res) => {
-        if(!req.user)
-        {
-            return res.render('auth/sign-in');
-        }
-        
-        return controller.getProfile(req, res);
-        
-    });
-
     app.post('/items', (req, res) => {
         const item = req.body;
 

@@ -2,7 +2,7 @@ mixin socialNav
     if (user)
         ul.nav.navbar-nav
             li 
-                a(href='/items/profile')
+                a(href='/profile/' + user.username)
                     | Profile
             li 
                 a(href='/items/chat')
