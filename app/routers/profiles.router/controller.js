@@ -9,7 +9,7 @@ class ProfileController {
         const username = req.params.username;
         this.data.users.findByUsername(username)
             .then((user) => {
-                 const viewModel = userModel.toViewModel(user);
+                const viewModel = userModel.toViewModel(user);
                 res.render('profiles/profile', { context: viewModel });
             })
             .catch((err) => {

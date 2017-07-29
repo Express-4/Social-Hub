@@ -14,7 +14,6 @@ async()
     .then((server) => {
         server.listen(config.port, () =>
             console.log(`Server listening at :${config.port}`));
-
     })
     .catch((err) => {
         console.log(err);

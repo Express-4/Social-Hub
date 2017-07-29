@@ -1,5 +1,10 @@
 extends ../_shared/_master
+include ../_shared/_post_input
+include ../_shared/_post
 block body
     h1 Profile Page
     h2 
         | #{context.username}
+    +postInput
+    each post in context.posts
+        +post(post.username, post.text)

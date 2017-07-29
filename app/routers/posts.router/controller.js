@@ -12,25 +12,25 @@ class PostsController {
             username: user.username,
         };
 
-        post.createdOn = Date.now;
+        post.createdOn = Date.now();
 
         return Promise
             .all([
                 this.data.posts.create(post),
-                this.data.users.findOrCreateBy(user.id),
+                this.data.users.findById(user._id),
             ])
             .then(([dbPost, dbUser]) => {
-                user.posts = dbUser.posts || [];
-                user.posts.push({
+                dbUser.posts = dbUser.posts || [];
+                dbUser.posts.push({
                     text: dbPost.text,
                     createdOn: dbPost.createdOn,
                 });
 
-                return Promise.resolve(this.data.users.updateById(user));
+                return Promise.resolve(this.data.users.updateById(dbUser));
             })
             .then(() => {
                 // connect-flash
-                return res.redirect('/');
+                return res.redirect('/profile/' + user.username);
             })
             .catch((err) => {
                 req.flash('error', err);

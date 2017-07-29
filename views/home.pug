@@ -1,4 +1,5 @@
 extends _shared/_master
+include _shared/_post_input
 block body
     .row
         .col-md-12
@@ -6,13 +7,4 @@ block body
                 | I am Home
                 | Welcome
     .row
-        .col-md-12
-            form.form-horizontal(action='/posts', method="POST", role='form')
-                .form-group.row
-                    .col-sm-1
-                        img.form-avatar(src='~/Avatar?id=@User.Identity.GetUserId()')
-                    .col-sm-6.col-sm-offset-1
-                        textarea.form-control(name="text" required type="text" placeholder='What\'s happening')
-                .form-group.row
-                    .col-sm-1.col-sm-offset-7
-                        input.btn.btn-default(type='submit', value='Post')
+        +postInput

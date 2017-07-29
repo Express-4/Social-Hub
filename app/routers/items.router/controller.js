@@ -8,12 +8,10 @@ const init = (data) => {
                     });
                 });
         },
-        getChat(req, res)
-        {
+        getChat(req, res) {
             res.render('items/chat2');
         },
-        getProfile(req, res)
-        {
+        getProfile(req, res) {
             res.render('items/profile');
         },
     };

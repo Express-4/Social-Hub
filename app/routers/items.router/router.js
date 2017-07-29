@@ -11,13 +11,11 @@ const attachTo = (app, data) => {
     });
 
     app.get('/items/chat', (req, res) => {
-        if(!req.user)
-        {
+        if (!req.user) {
             return res.render('auth/sign-in');
         }
-        
+
         return controller.getChat(req, res);
-        
     });
 
     app.post('/items', (req, res) => {
