@@ -47,7 +47,7 @@ class ProfileController {
             })
             .then(() => {
                 const user = req.user;
-                user.avatarPath = pathToSave;
+                user.avatarPath = '/static/avatars/' + fileName;
                 this.data.users.updateById(user);
                 res.json({ success: true, avatarFileLocation: pathToSave });
             });
