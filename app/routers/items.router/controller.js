@@ -9,7 +9,7 @@ const init = (data) => {
                 });
         },
         getChat(req, res) {
-            res.render('items/chat2');
+            res.render('items/chat');
             //res.sendFile(__dirname + '../../../views/index.html');
         },
         getProfile(req, res) {
