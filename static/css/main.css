@@ -38,3 +38,11 @@ select {
     margin-right: 5px;
     border-radius: 2px;
 }
+
+.profile {
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+    margin-right: 5px;
+    border-radius: 2px;
+}

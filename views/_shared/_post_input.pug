@@ -2,7 +2,6 @@ mixin postInput
         form.form-horizontal(action='/posts', method="POST", role='form')
             .form-group.row
                 .col-sm-1
-                    img.form-avatar(src='~/Avatar?id=@User.Identity.GetUserId()')
                 .col-sm-6
                     textarea.form-control(name="text" required type="text" placeholder='What\'s happening')
             .form-group.row

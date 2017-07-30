@@ -3,8 +3,13 @@ include ../_shared/_post_input
 include ../_shared/_post
 block body
     .col-md-1
-        img(src='/static/imgs/avatar.png')
-        h2 
+        if  user.avatarPath
+            img.profile(src=user.avatarPath)
+        else
+            img.profile(src='/static/imgs/avatar.png')
+        br
+        input(type="button" class="btn btn-default" value="Change image" onclick="location.href = '/profile/change/avatar';")
+        h3
             | #{context.username}
     .col-md-11
         +postInput
