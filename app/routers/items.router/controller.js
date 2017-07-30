@@ -10,6 +10,7 @@ const init = (data) => {
         },
         getChat(req, res) {
             res.render('items/chat2');
+            //res.sendFile(__dirname + '../../../views/index.html');
         },
         getProfile(req, res) {
             res.render('items/profile');

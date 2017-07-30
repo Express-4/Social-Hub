@@ -12,6 +12,7 @@ async()
     .then((data) => require('./app').init(data))
     .then((app) => require('./app/chat').init(app))
     .then((server) => {
+        console.log('server port');
         server.listen(config.port, () =>
             console.log(`Server listening at :${config.port}`));
     })
