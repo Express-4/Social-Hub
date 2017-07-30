@@ -2,6 +2,7 @@ const express = require('express');
 const expressValidator = require('express-validator');
 
 const init = (data) => {
+    console.log('app init');
     const app = express();
 
     require('./config').applyTo(app);

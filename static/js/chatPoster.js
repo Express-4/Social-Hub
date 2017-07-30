@@ -2,7 +2,9 @@ $(function () {
         var socket = io();
         console.log(socket);
         $('form').submit(function(){
-          socket.emit('chat message', $('#m').val());
+          var userName = $('#name').text();
+          var input = userName + ': ' + $('#m').val();
+          socket.emit('chat message', input);
           console.log($('#m').val());
           $('#m').val('');
           return false;
