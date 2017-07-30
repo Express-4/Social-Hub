@@ -14,8 +14,10 @@ html
       #messages { margin-bottom: 40px }
       #chatHeader { position: fixed; top: 0px; width:100%; height: 30px; background: #82E0FF; padding-left: 40%; padding-left: 40%; padding-top: 5px; font-style: oblique; }
   body
-    div(id='chatHeader')
-      | Chat room
+    #chatHeader
+      | Hello,
+      span#name #{user.username}
+      |   in our chat room.
     ul#messages
     form(action='')
       input#m(autocomplete='off')
