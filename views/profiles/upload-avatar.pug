@@ -1,0 +1,42 @@
+extends ../_shared/_master
+block body
+    div
+        h4 Change your avatar
+        #ajax-container
+            script(src='/static/js/jquery.form.js')
+            script(src='/static/js/jquery.Jcrop.js')
+            script(src='/static/js/site.avatar.js')
+            script(src='/static/js/nprogress')
+            link(href='/static/css/jquery.Jcrop.css', rel='stylesheet')
+            link(href='/static/css/site.avatar.css', rel='stylesheet')
+            link(href='/static/css/nprogress.css', rel='stylesheet')
+            hr
+            .panel.panel-default
+                .panel-body
+                    section#avatar-upload-box
+                        form#avatar-upload-form(action='/profile/change/avatar', data-ajax='true', data-ajax-method='POST', enctype='multipart/form-data', method='post')
+                            label.btn.btn-default.btn-file
+                                | Browse 
+                                input(type='file', name='file', style='display: none;')
+                            .upload-file-notice
+                                | Maximum Size: 
+                                span#avatar-max-size 2
+                                |  MB
+                        .upload-progress.col-md-6.hidden
+                            .upload-percent-value.pull-left 0%
+                            .upload-percent-bar.pull-left
+                        #upload-status
+                    section#avatar-crop-box.hidden
+                        p
+                            img#crop-avatar-target(src='', alt='Uploaded image')
+                            #preview-pane
+                                .preview-container
+                                    img.jcrop-preview(src='', alt='Preview')
+                        p
+                        p
+                            button.btn.btn-default(onclick='saveAvatar()') Save Avatar
+                    #avatar-result.hidden
+                        img(src='', alt='Final Image')
+                        div
+                            h3
+                                | Avatar is changed.

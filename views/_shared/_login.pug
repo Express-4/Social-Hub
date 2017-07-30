@@ -2,8 +2,12 @@ mixin login
     if (user)
         form
         ul.nav.navbar-nav.navbar-right
-            li
-                img.small-avatar(src='/static/imgs/avatar.png')
+            if  user.avatarPath
+                li
+                    img.small-avatar(src='/static/imgs/avatar.png')
+            else
+                li
+                    img.small-avatar(src=user.avatarPath)
             li
                 a(href='/profile/' + user.username)
                     =user.username
