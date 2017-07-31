@@ -1,7 +1,12 @@
 extends _shared/_master
+block styles
+    style(type="text/css").
+        .jumbotron { background-image: url("https://images.vexels.com/media/users/3/124730/raw/0813ca406b3f8a95056800f34bb93bb8-social-network-illustration.jpg"); background-size: cover;}
+        .jumbotron + h1 { color: white;}
 block body
-    .row
-        .col-md-5
-            h2
-                | Welcome to Social Hub
-            
+    .jumbotron
+        h1 Social Hub
+        p
+            | Simple social network
+        p
+            a.btn.btn-primary.btn-lg(href='/auth/sign-up') Take a part
