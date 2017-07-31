@@ -9,7 +9,7 @@ class ProfileController {
 
     sendRequest(req, res) {
         const toUsername = req.params.to;
-        const fromUsername = req.params.from;
+        const fromUsername = req.user.username;
 
         return Promise.all([
             this.data.users.findByUsername(toUsername),

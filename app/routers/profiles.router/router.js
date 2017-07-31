@@ -52,8 +52,8 @@ const attachTo = (app, data) => {
         .post('/avatar/save', (req, res) => {
             return controller.saveChangedAvatar(req, res);
         })
-        .get('/sendrequest/:to/:from', (req, res) => {
-            
+        .get('/sendrequest/:to', (req, res) => {
+
         });
 
     app.use('/profile', router);
