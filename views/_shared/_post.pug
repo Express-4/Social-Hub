@@ -7,7 +7,7 @@ mixin post(username, text)
                 else
                     img.large-avatar(src='/static/imgs/avatar.png')
                 p.user-title
-                    | #{username}
+                    | #{context.username}
                 h4
                     | #{text}
                 hr
