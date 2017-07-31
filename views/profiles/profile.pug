@@ -1,6 +1,9 @@
 extends ../_shared/_master
 include ../_shared/_post_input
 include ../_shared/_post
+block styles
+    style.
+        #noposts { padding-left: 100px;}
 block body
     if message
         p
@@ -19,5 +22,8 @@ block body
             | #{context.username}
     .col-md-11
         +postInput
-    each post in context.posts
-        +post(user.username, post.text)
+    if (context.posts)
+        each post in context.posts
+            +post(user.username, post.text)
+    else
+        span#noposts No posts

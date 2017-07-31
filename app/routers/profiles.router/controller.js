@@ -52,9 +52,11 @@ class ProfileController {
         this.data.users.findByUsername(username)
             .then((user) => {
                 const viewModel = userModel.toViewModel(user);
-                viewModel.posts.sort((a, b) => {
-                    return new Date(b.createdOn) - new Date(a.createdOn);
-                });
+                if(viewModel.posts){
+                    viewModel.posts.sort((a, b) => {
+                        return new Date(b.createdOn) - new Date(a.createdOn);
+                    });
+                }
 
                 res.render('profiles/profile', { context: viewModel });
             })
