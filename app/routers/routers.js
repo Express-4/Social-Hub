@@ -8,7 +8,7 @@ const attachTo = (app, data) => {
         if (!req.user) {
                 return Promise.resolve()
                     .then(() => {
-                        res.redirect('/auth/sign-up');
+                        res.render('homeUnloged');
                     });
             }
 
