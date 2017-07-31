@@ -11,8 +11,10 @@ block body
         else
             img.profile(src='/static/imgs/avatar.png')
         br
-        input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/profile/change/avatar';")
-        input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/sendrequest/#{user.username}';")
+        if user.username == context.username
+            input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/profile/change/avatar';")
+        if user.username != context.username
+            input(type='button' class='btn btn-default' value='Send friend request' onclick="location.href = '/sendrequest/#{user.username}';")
         h3
             | #{context.username}
     .col-md-11
