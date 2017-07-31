@@ -53,7 +53,7 @@ const attachTo = (app, data) => {
             return controller.saveChangedAvatar(req, res);
         })
         .get('/sendrequest/:to', (req, res) => {
-
+            return controller.sendRequest(req, res);
         });
 
     app.use('/profile', router);

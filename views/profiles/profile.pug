@@ -6,12 +6,13 @@ block body
         p
             | #{message}
     .col-md-1
-        if  user.avatarPath
-            img.profile(src=user.avatarPath)
+        if  context.avatarPath
+            img.profile(src=context.avatarPath)
         else
             img.profile(src='/static/imgs/avatar.png')
         br
-        input(type="button" class="btn btn-default" value="Change image" onclick="location.href = '/profile/change/avatar';")
+        input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/profile/change/avatar';")
+        input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/sendrequest/#{user.username}';")
         h3
             | #{context.username}
     .col-md-11
