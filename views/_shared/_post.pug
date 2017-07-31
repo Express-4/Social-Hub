@@ -2,8 +2,8 @@ mixin post(username, text)
     .col-sm-12
         .row
             .col-sm-6.col-sm-offset-2
-                if  user.avatarPath
-                    img.large-avatar(src=user.avatarPath)
+                if  context.avatarPath
+                    img.large-avatar(src=context.avatarPath)
                 else
                     img.large-avatar(src='/static/imgs/avatar.png')
                 p.user-title
