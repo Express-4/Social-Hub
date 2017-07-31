@@ -7,6 +7,46 @@ class ProfileController {
         this.data = data;
     }
 
+    sendRequest(req, res) {
+        const toUsername = req.params.to;
+        const fromUsername = req.params.from;
+
+        return Promise.all([
+            this.data.users.findByUsername(toUsername),
+            this.data.users.findByUsername(fromUsername),
+        ])
+        .then(([toUser, fromUser]) => {
+            const request = {
+                to: {
+                     _id: toUser._id,
+                     username: toUser.username,
+                },
+                from: {
+                    id: fromUser._id,
+                    username: fromUser.username,
+                },
+            };
+            toUser.receivedRequests = toUser.receivedRequests || [];
+            fromUser.sentRequests = fromUser.sentRequests || [];
+
+            toUser.receivedRequests.push(request);
+            fromUser.sentRequests.push(request);
+
+            return Promise.all([
+                this.data.requests.create(request),
+                this.data.users.updateById(toUser),
+                this.data.users.updateById(fromUser),
+            ])
+            .then(([dbReqest, dbToUser, dbFromUser]) => {
+                const url = '/profile/' + dbToUser.username;
+                res.redirect(url);
+            });
+        })
+        .catch((err) => {
+            res.redirect('/404');
+        });
+    }
+
     getProfile(req, res) {
         const username = req.params.username;
         this.data.users.findByUsername(username)

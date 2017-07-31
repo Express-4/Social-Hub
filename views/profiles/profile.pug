@@ -2,6 +2,9 @@ extends ../_shared/_master
 include ../_shared/_post_input
 include ../_shared/_post
 block body
+    if message
+        p
+            | #{message}
     .col-md-1
         if  user.avatarPath
             img.profile(src=user.avatarPath)
