@@ -31,6 +31,16 @@ const attachTo = (app, data) => {
 
             return controller.getProfile(req, res);
         })
+        .get('/search/:username', (req, res) => {
+            if (!req.user) {
+                return Promise.resolve()
+                    .then(() => {
+                        res.redirect('/auth/sign-in');
+                    });
+            }
+
+            return controller.getSearchedProfile(req, res);
+        })
         .get('/change/avatar', (req, res) => {
             if (!req.user) {
                 return Promise.resolve()

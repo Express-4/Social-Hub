@@ -1,0 +1,20 @@
+include ../_shared/_post
+block body
+    if message
+        p
+            | #{message}
+    .col-md-1
+        if  context.avatarPath
+            img.profile(src=context.avatarPath)
+        else
+            img.profile(src='/static/imgs/avatar.png')
+        br
+        if user.username == context.username
+            input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/profile/change/avatar';")
+        if user.username != context.username
+            input(type='button' class='btn btn-default' value='Send friend request' onclick="location.href = '/sendrequest/#{user.username}';")
+        h3
+            | #{context.username}
+    .col-md-11
+    each post in context.posts
+        +post(user.username, post.text)

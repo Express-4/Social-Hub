@@ -7,3 +7,8 @@ mixin socialNav
             li 
                 a(href='/items/chat')
                     | Chat
+        form.navbar-form.navbar-left(role='search')
+            .form-group
+                input.form-control(id='searchField' type='text', placeholder='Search')
+                button.btn.btn-default(type='submit') Submit
+        script(src="../../static/js/searchRequester.js")

@@ -63,6 +63,22 @@ class ProfileController {
             });
     }
 
+    getSearchedProfile(req, res) {
+        const username = req.params.username;
+        this.data.users.findByUsername(username)
+            .then((user) => {
+                const viewModel = userModel.toViewModel(user);
+                viewModel.posts.sort((a, b) => {
+                    return new Date(b.createdOn) - new Date(a.createdOn);
+                });
+
+                res.render('profiles/searchProfile', { context: viewModel });
+            })
+            .catch((err) => {
+                res.render('404');
+            });
+    }
+
     getChangeAvatar(req, res) {
         res.render('profiles/upload-avatar');
     }
