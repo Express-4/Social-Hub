@@ -8,6 +8,7 @@ class ProfileController {
     }
 
     sendRequest(req, res) {
+        console.log('sad');
         const toUsername = req.params.to;
         const fromUsername = req.user.username;
 

@@ -12,9 +12,25 @@ block body
         if user.username == context.username
             input(type='button' class='btn btn-default' value='Change image' onclick="location.href = '/profile/change/avatar';")
         if user.username != context.username
-            input(type='button' class='btn btn-default' value='Send friend request' onclick="location.href = '/sendrequest/#{user.username}';")
+            input(id='addButton' type='button' class='btn btn-default' value='Send friend request')
         h3
             | #{context.username}
     .col-md-11
     each post in context.posts
         +post(user.username, post.text)
+script.
+    $('#addButton').click(function(){
+    var username = $('h3').text();
+    console.log(username);
+     $.ajax({
+        url: '/profile//sendrequest/' + username,
+        method: 'GET',
+        contentType: 'application/json',
+        data: JSON.stringify({username: username}),
+        success: function(){
+            $('#addButton').prop('disabled', true);
+        }
+    });
+
+        return false;
+    });
